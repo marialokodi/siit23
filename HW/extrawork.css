@@ -1,0 +1,64 @@
+body {
+  background-color: beige;
+}
+.bold {
+  font-weight: bold;
+}
+.circle-image {
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+  border: 5px solid gray;
+}
+.circle-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.dogTypes {
+  float: up;
+}
+
+#main {
+  float: right;
+  width: 70%;
+  padding: 0 30px;
+  box-sizing: border-box;
+}
+
+#sidebar {
+  float: left;
+  width: 30%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#sidebar a {
+  text-decoration: none;
+  color: black;
+  line-height: 1.6em;
+  font-size: 18px;
+}
+
+.titles {
+  float: left;
+  width: 30%;
+  box-sizing: border-box;
+  font-weight: 900;
+}
+
+.description {
+  float: right;
+  width: 70%;
+  box-sizing: border-box;
+}
+.container2 {
+  padding: 30px;
+}
+
+#descriptionText {
+  box-sizing: border-box;
+  padding: 30px;
+}
