@@ -1,4 +1,43 @@
 body {
+  background-color: antiquewhite;
+}
+
+#sidebar {
+  box-sizing: border-box;
+  font-weight: 700;
+  font-size: 20px;
+  float: left;
+  width: 30%;
+}
+#sidebar .blue {
+  color: blue;
+}
+#main {
+  float: right;
+  width: 70%;
+  box-sizing: border-box;
+  border-left: 10px;
+  border-color: aquamarine;
+}
+.circleImage {
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+  border: 5px solid gray;
+}
+.titles {
+  float: left;
+  width: 20%;
+  font-weight: 800;
+}
+.descriptions {
+  float: right;
+  width: 80%;
+}
+
+/*body {
   background-color: beige;
 }
 .bold {
@@ -26,6 +65,8 @@ body {
   width: 70%;
   padding: 0 30px;
   box-sizing: border-box;
+  border-left: 50px;
+  border-color: aqua;
 }
 
 #sidebar {
@@ -44,21 +85,28 @@ body {
 
 .titles {
   float: left;
-  width: 30%;
+  width: 20%;
   box-sizing: border-box;
   font-weight: 900;
 }
 
 .description {
   float: right;
-  width: 70%;
+  width: 80%;
   box-sizing: border-box;
 }
 .container2 {
-  padding: 30px;
+  position: relative;
+  top: 5px;
 }
 
 #descriptionText {
   box-sizing: border-box;
-  padding: 30px;
+  position: relative;
+  top: 50px;
 }
+
+#rightSide {
+  border-left: 5px;
+  border-color: aqua;
+}*/
