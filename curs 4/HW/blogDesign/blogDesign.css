@@ -1,0 +1,30 @@
+body {
+  box-sizing: border-box;
+  width: 50%;
+  align-self: center;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  border-bottom: 2px solid black;
+  font-weight: 1000;
+}
+.title {
+  flex: 1;
+}
+.button {
+  margin: 10px;
+}
+main .title {
+  font-weight: strong;
+  font-size: 2em;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.italic {
+  color: grey;
+  font-style: italic;
+  font-size: 0.8em;
+}

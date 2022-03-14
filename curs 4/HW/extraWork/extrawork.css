@@ -1,0 +1,127 @@
+body {
+  background-color: #fdfff4;
+  padding: 20px;
+}
+
+#sidebar {
+  box-sizing: border-box;
+  font-weight: 600;
+  font-size: 1.2em;
+  float: left;
+  width: 30%;
+  padding-top: 20px;
+}
+#sidebar > div {
+  padding: 5px 0px 5px 50px;
+}
+#sidebar .blue {
+  color: blue;
+}
+#main {
+  padding-left: 20px;
+  float: right;
+  width: 70%;
+  box-sizing: border-box;
+  border-left: 10px;
+  border-color: aquamarine;
+  border-left: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+}
+.circleImage {
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+  border: 3px solid gray;
+  align-content: center;
+  justify-content: center;
+}
+.dogType {
+  font-size: 2em;
+  font-weight: bold;
+}
+.titles {
+  float: left;
+  width: 20%;
+  font-weight: 800;
+}
+.descriptions {
+  float: right;
+  width: 80%;
+}
+
+/*body {
+  background-color: beige;
+}
+.bold {
+  font-weight: bold;
+}
+.circle-image {
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+  border: 5px solid gray;
+}
+.circle-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.dogTypes {
+  float: up;
+}
+
+#main {
+  float: right;
+  width: 70%;
+  padding: 0 30px;
+  box-sizing: border-box;
+  border-left: 50px;
+  border-color: aqua;
+}
+
+#sidebar {
+  float: left;
+  width: 30%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#sidebar a {
+  text-decoration: none;
+  color: black;
+  line-height: 1.6em;
+  font-size: 18px;
+}
+
+.titles {
+  float: left;
+  width: 20%;
+  box-sizing: border-box;
+  font-weight: 900;
+}
+
+.description {
+  float: right;
+  width: 80%;
+  box-sizing: border-box;
+}
+.container2 {
+  position: relative;
+  top: 5px;
+}
+
+#descriptionText {
+  box-sizing: border-box;
+  position: relative;
+  top: 50px;
+}
+
+#rightSide {
+  border-left: 5px;
+  border-color: aqua;
+}*/
