@@ -1,3 +1,6 @@
+body {
+  padding: 5px;
+}
 nav {
   display: flex;
   align-items: center;
@@ -6,27 +9,31 @@ nav {
 nav > .button {
   background-color: #2265a9;
   color: white;
-  width: 20%;
-  margin: 0 5px;
+  width: 19%;
   padding-top: 15px;
   padding-bottom: 15px;
   text-align: center;
 }
 header {
-  margin-top: 20px;
+  margin: 20px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 header .title {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .big {
   font-size: 2em;
-  margin: 0 10px 10px 10px;
   padding-right: 10px;
   border-right: 1px solid black;
 }
+.small {
+  padding-left: 10px;
+}
+
 .date {
   font-size: 0.6em;
 }
@@ -35,34 +42,50 @@ header .title {
   color: white;
   border: 3px solid white;
   box-sizing: border-box;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  border-style: double;
 }
 .container1 {
-  background-color: #bedaff;
-  margin: 10px;
-  display: flex;
+  background-image: linear-gradient(#bedaff, #3a3b3f);
+  min-height: 55vh;
+  position: relative;
+  margin-bottom: 40px;
 }
 .table {
   background-color: #2265a9;
-  width: 30%;
+  width: 27%;
   color: white;
   padding: 10px;
+  position: absolute;
+  left: 20px;
+  top: 20px;
 }
 .tableTitle {
-  font-size: 1.2em;
+  font-size: 1em;
   border-bottom: 1px dotted white;
   padding-bottom: 5px;
   margin-bottom: 5px;
 }
 .tableText {
-  font-size: 0.8em;
+  font-size: 0.7em;
   font-weight: lighter;
+}
+.title2 {
+  position: absolute;
+  right: 20px;
+  bottom: -20px;
+  background-color: #2265a9;
+  font-size: 3.5em;
+  color: white;
+  padding: 15px;
 }
 .container2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 10px;
   padding-bottom: 20px;
   border-bottom: 1px dashed #3a3b3f;
 }
@@ -72,12 +95,12 @@ header .title {
   align-items: center;
   justify-content: space-between;
   background-color: #e8e8e8;
-  margin: 0 20px 0 0;
+  width: 29%;
   padding: 10px;
 }
 .subtitle {
   font-size: 1.2em;
-  font-weight: 500;
+  font-weight: 600;
   padding-bottom: 5px;
   border-bottom: 1px dotted grey;
 }
@@ -90,38 +113,46 @@ header .title {
 }
 .readMore {
   margin: 10px 0;
-  text-align: end;
+  align-self: flex-end;
   color: #2265a9;
 }
 .container3 {
   display: flex;
   margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
 }
 .obj1 {
   flex: 2;
+  margin-right: 20px;
+  padding-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid lightgray;
 }
 .px160 {
-  margin: 10px 0;
   min-height: 160px;
   min-width: 200px;
 }
 
 .objText {
   margin: 0 10px;
+  height: 100%;
 }
 .objSubtitle {
   font-size: 1.2em;
   font-weight: 500;
   border-bottom: 1px solid lightgray;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
 }
 .continue {
   text-align: end;
   color: #2265a9;
   font-size: 0.8em;
+  margin-top: 10px;
 }
 .obj2 {
   flex: 1;
@@ -142,11 +173,12 @@ header .title {
 }
 .container4 {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .px100 {
-  margin: 10px 0;
-  min-height: 100px;
-  min-width: 174px;
+  height: 100px;
+  max-width: 174px;
 }
 footer {
   background-color: #2265a9;
@@ -157,4 +189,5 @@ footer {
   font-size: 0.6em;
   min-height: 30px;
   padding: 0 5px;
+  margin-top: 10px;
 }

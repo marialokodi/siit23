@@ -1,9 +1,63 @@
 body {
   background-color: #fdfff4;
+  width: 50%;
   padding: 20px;
 }
-
+#site {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
 #sidebar {
+  display: flex;
+  align-items:flex-start;
+  justify-content:first baseline;
+  flex-direction: column;
+  flex: 1;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+#sidebar > div {
+  margin: 10px 0;
+}
+#sidebar .blue {
+  color: blue;
+}
+#main {
+  flex: 4;
+  padding-left: 20px;
+  border-left: 1px solid lightslategray;
+  align-items:flex-start;
+  justify-content:first baseline;
+  flex-direction: column;
+}
+.circleImage {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  border: 3px solid gray;
+}
+.dogImage {
+position: relative;
+left: 150px;
+}
+.dogType {
+  margin: 20px 0 10px 0;
+  font-size: 1.6em;
+  font-weight: 600;
+}
+.container1 {
+  display: flex;
+  align-items:flex-start;
+  justify-content:flex-start;
+}
+.titles {
+  font-weight: 600;
+  margin-right: 30px;
+}
+
+
+/*#sidebar {
   box-sizing: border-box;
   font-weight: 600;
   font-size: 1.2em;
@@ -51,77 +105,3 @@ body {
   float: right;
   width: 80%;
 }
-
-/*body {
-  background-color: beige;
-}
-.bold {
-  font-weight: bold;
-}
-.circle-image {
-  display: inline-block;
-  border-radius: 50%;
-  overflow: hidden;
-  width: 200px;
-  height: 200px;
-  border: 5px solid gray;
-}
-.circle-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.dogTypes {
-  float: up;
-}
-
-#main {
-  float: right;
-  width: 70%;
-  padding: 0 30px;
-  box-sizing: border-box;
-  border-left: 50px;
-  border-color: aqua;
-}
-
-#sidebar {
-  float: left;
-  width: 30%;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-#sidebar a {
-  text-decoration: none;
-  color: black;
-  line-height: 1.6em;
-  font-size: 18px;
-}
-
-.titles {
-  float: left;
-  width: 20%;
-  box-sizing: border-box;
-  font-weight: 900;
-}
-
-.description {
-  float: right;
-  width: 80%;
-  box-sizing: border-box;
-}
-.container2 {
-  position: relative;
-  top: 5px;
-}
-
-#descriptionText {
-  box-sizing: border-box;
-  position: relative;
-  top: 50px;
-}
-
-#rightSide {
-  border-left: 5px;
-  border-color: aqua;
-}*/

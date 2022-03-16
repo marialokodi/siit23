@@ -1,19 +1,23 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-header {
-  background-color: lightgray;
-  padding-bottom: 40px;
+.head {
+  background-color: #eeeeee;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
+  height: 15vh;
 }
 .contact {
-  font-size: 4em;
+  flex: 2;
+  font-size: 3em;
+  text-align: end;
 }
 .otherText {
-  font-size: 2em;
+  flex: 4;
+  font-size: 1.5em;
   color: gray;
+  margin-left: 20px;
 }
 footer {
   max-width: 40%;
@@ -23,18 +27,23 @@ footer {
   align-items: center;
 }
 #main {
+  margin: 10px;
   display: flex;
-  height: 50vh;
+  height: 40vh;
+  display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
 }
 .formular {
-  max-width: 500px;
-  width: 100%;
-  background-color: lightgray;
-  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0px;
+  background-color: #f5f5f5;
+  padding: 5px;
   border-radius: 5px;
+  padding: 10px 20px;
 }
 #main .formular .userDetails {
   display: flex;
@@ -42,7 +51,7 @@ footer {
   justify-content: flex-start;
 }
 .formular .userDetails .inputBox {
-  margin: 10px 0 12px 30px;
+  margin: 10px 0 12px 0;
 }
 .userDetails .inputBox input {
   height: 25px;
@@ -53,41 +62,47 @@ footer {
   margin-bottom: 10px;
 }
 .inputDetails {
-  width: calc(100% / 2 - 20px);
+  flex: 1;
+  margin-right: 20px;
+}
+.inputMessage {
+  flex: 1;
+  margin-left: 20px;
 }
 textarea {
   resize: vertical;
   max-height: 200px;
+  width: 100%;
+}
+.button {
+  text-align: right;
 }
 
-/*#main > form {
+footer {
+
+  margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+
 }
-
-form > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}*/
-
 .social {
   width: 100%;
-  justify-content: center;
-  font-size: 1.2em;
+  text-align: center;
+  font-size: 1em;
   border-bottom: 1px solid grey;
   margin-top: 20px;
 }
 .links {
+  width: 100%;
   margin-top: 20px;
+  font-size: 0.8em;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-around;
   align-items: center;
 }
-.links > a {
+/*.links > a {
   text-decoration: none;
   margin: 0 20px 0 20px;
 }
