@@ -1,0 +1,14 @@
+@import url("https://fonts.google.com/specimen/Rubik");
+
+body {
+  width: 375px;
+  font-family: Rubik;
+}
+#main {
+  display: grid;
+  text-align: center;
+}
+#section1 .top {
+  background-color: hsl(264, 100%, 61%);
+  height: 100px;
+}

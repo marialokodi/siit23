@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function par(nr) {
+        let rezultat;
+        if (nr % 2 === 0) {
+          rezultat = "par";
+        } else {
+          rezultat = "impar";
+        }
+        return rezultat;
+      }
+      console.log(par(5));
+      let r = par(10);
+      console.log(r);
+
+      function farenheit(celsius) {
+        return celsius * 1.8 + 32;
+      }
+      console.log(farenheit(0));
+      console.log(farenheit(20));
+      console.log(farenheit(100));
+
+      function celsius(farenheit) {
+        return ((farenheit - 32) * 5) / 9;
+      }
+      console.log(celsius(0));
+      console.log(celsius(20));
+      console.log(celsius(100));
+
+      console.log(farenheit(celsius(0)));
+      console.log(farenheit(celsius(20)));
+      console.log(farenheit(celsius(100)));
+
+      function maxim(numar1, numar2) {
+        if (numar1 > numar2) {
+          return numar1;
+        }
+        return numar2;
+      }
+      console.log(maxim(5, 7));
+
+      function maxim3(a, b, c) {
+        if (a >= b && a >= c) {
+          return a;
+        } else if (b >= a && b >= c) {
+          return b;
+        } else {
+          return c;
+        }
+      }
+      console.log(maxim3(5, 4, 6));
+
+      //bmi = greutate/inaltime/inaltime
+      //La greutate de x kg si inaltimea de x esti x
+      //bmi<20 subponderal
+      //<25 normal
+      //30 subponderal
+      //40 obez
+      //>40 bolnav
+
+      function BMICalculator(greutate, inaltime) {
+        let bmi;
+        bmi = greutate / (inaltime * inaltime);
+        let tip;
+        if (bmi < 20) {
+          tip = "subponderal";
+        } else if (bmi < 25) {
+          tip = "normal";
+        } else if (bmi < 30) {
+          tip = "supraponderal";
+        } else if (bmi < 40) {
+          tip = "obez";
+        } else {
+          tip = "bolnav";
+        }
+        return `La greutate de ${greutate} kg si inaltimea de ${inaltime} esti ${tip}`;
+      }
+      console.log(BMICalculator(45, 1.8));
+      console.log(BMICalculator(55, 1.5));
+      console.log(BMICalculator(65, 1.7));
+      console.log(BMICalculator(120, 2));
+
+      //miles/gallon in l/km
+
+      function converter(v) {
+        let mile = 1.61;
+        let gallon = 3.79;
+        return ((gallon / mile) * 100) / v;
+      }
+      console.log(converter(50, 10));
+
+      //aria unui dreptunghi
+      function arieDreptunghi(h, l) {
+        return h * l;
+      }
+      console.log(arieDreptunghi(5, 10));
+      console.log(arieDreptunghi(20, 10));
+      console.log(arieDreptunghi(55, 12));
+
+      //aria unui patrat cu f aria unui dreptunghi
+
+      function ariePatrat(l) {
+        return arieDreptunghi(l, l);
+      }
+      console.log(ariePatrat(5));
+
+      //media unui elev care are 4 note la oral si 1 nota la teza
+      function medie(nota1, nota2, nota3, nota4, teza) {
+        return (((nota1 + nota2 + nota3 + nota4) / 4) * 3 + teza) / 4;
+      }
+      console.log(medie(10, 10, 10, 10, 7));
+
+      //Write a JavaScript program to compute the sum of the two given integers. If the two values are same, then returns triple their sum.
+      function compute(num1, num2) {
+        if (num1 === num2) {
+          return (num1 + num2) * 3;
+        } else {
+          return num1 + num2;
+        }
+      }
+      console.log(compute(5, 6));
+      console.log(compute(6, 6));
+
+      //Write a JavaScript program to check two given numbers and return true if one of the number is 50 or if their sum is 50.
+      function is50(num1, num2) {
+        if (num1 === 50 || num2 === 50 || num1 + num2 === 50) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+      console.log(is50(25, 25));
+      console.log(is50(50, 25));
+      console.log(is50(2, 10));
+
+      //Write a JavaScript program to check from two given integers, whether one is positive and another one is negative.
+      function positiveNegative(num1, num2) {
+        if ((num1 < 0 && num2 >= 0) || (num1 >= 0 && num2 < 0)) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+      console.log(positiveNegative(5, -4));
+      console.log(positiveNegative(-6, -4));
+      console.log(positiveNegative(5, 4));
+      console.log(positiveNegative(-5, 4));
+
+      //Write a JavaScript program to check whether a given positive number is a multiple of 3 or a multiple of 7.
+      function bolc(num) {
+        if (num % 3 === 0 || num % 7 === 0) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+      console.log(bolc(14));
+      console.log(bolc(21));
+      console.log(bolc(10));
+
+      //Write a JavaScript program to convert a given number to hours and minutes.
+      function hourConverter(num) {
+        let msec = Math.floor(num) num % 60;
+        let sec = (num - msec * 60) % 60;
+        let minutes = (num - msec * sec * 60) % 60;
+        let hours = (num - msec * sec * minutes) % 60;
+
+        return `${hours} hours ${minutes} minutes ${sec} secunds ${msec} miliseconds`;
+      }
+      console.log(hourConverter(10000000000));
+
+      //Write a JavaScript program to check from two given integers whether one of them is 8 or their sum or difference is 8.
+      function is8(num1, num2) {
+        if (
+          num1 === 8 ||
+          num2 === 8 ||
+          num1 + num2 === 8 ||
+          num1 - num2 === 8 ||
+          num2 - num1 === 8
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+      console.log(is8(8, 5));
+      console.log(is8(3, 5));
+      console.log(is8(7, 5));
+      console.log(is8(13, 5));
+      console.log(is8(10, 5));
+      console.log(is8(0, 5));
+
+      //Write a JavaScript program to check whether the last digit of the three given positive integers is same.
+      function lastDig(num1, num2, num3) {
+        if (num1 % 10 === num2 % 10 && num1 % 10 === num3 % 10) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+      console.log(lastDig(55, 65, 45));
+      console.log(lastDig(51, 65, 45));
+      console.log(lastDig(5, 65, 45));
+
+      //Write a JavaScript program to find a value which is nearest to 100 from two different given integer values.
+      function nearestNumber(num1, num2) {
+        let nearest = 100 - num1; // poate sa fie si mai mare
+        if (nearest > 100 - num2) {
+          return num2;
+        } else {
+          return num1;
+        }
+      }
+      console.log(nearestNumber(99, 98));
+      console.log(nearestNumber(9, 98));
+
+      //Write a JavaScript program to check whether two given integer values are in the range 50..99 (inclusive). Return true if either of them are in the said range.
+      function inRange(num1, num2) {
+        if (num1 >= 50 && num1 <= 99 && num2 >= 50 && num2 <= 99) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      console.log(inRange(50, 99));
+      console.log(inRange(49, 99));
+      console.log(inRange(50, 100));
+      console.log(inRange(44, 109));
+    </script>
+  </head>
+  <body></body>
+</html>

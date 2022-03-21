@@ -122,3 +122,7 @@ function par(nr) {
 }
 
 let u = par(5);
+
+//functiile ne ajuta la refolosirea unui bloc de cod, un set de instructiuni
+//functiunile care nu returneaza nimic sunt proceduri in alte limbi
+//in js daca a functie nu returneaza nimic atunci returneaza undefined
