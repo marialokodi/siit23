@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let array = [2, 3, 4, 5, 6];
+      let array2 = [2, 3, "x y z", "ana are mere"];
+      let positii = [0, 1, 2, 3, 4, 5];
+
+      for (let value of positii) {
+        //codul de aici se executa pentru fiecare iteratie (fiecare valoare din arrayeul meu)
+      }
+      for (let value of array2) {
+        //codul de aici se executa pentru fiecare iteratie (fiecare valoare din arrayeul meu)
+        console.log(value);
+      }
+
+      let toAdd = [2, -8, 20, 100];
+      let result = 0;
+
+      for (let value of toAdd) {
+        result += value;
+        console.log(result, value);
+      }
+
+      for (let i = 0; i < toAdd.length; i++) {
+        result += toAdd[i];
+        console.log(result, toAdd[i]);
+      }
+
+      for (let i = toAdd.length - 1; i >= 0; i--) {
+        result += toAdd[i];
+        console.log(result, toAdd[i]);
+      }
+
+      /*
+                  for( primul pas(initializare); conditie de functionare ; paul urmator)
+                  */
+
+      /* for (let i = 1; i <= 100; i++) {
+              if (i % 2 === 0) {
+                console.log(i);
+              }
+            }
+
+            for (let i = 0; i <= 100; i += 2) {
+              console.log(i);
+            }*/
+
+      function contains(nr, what) {
+        for (let i = nr; i > 0; i = Math.floor(i / 10)) {
+          if (i % 10 === what) {
+            return true;
+          }
+        }
+        return false;
+      }
+
+      console.log(contains(7233, 7));
+      function bolt(nr) {
+        let direction = true;
+        for (let i = 1; i <= nr; i++) {
+          if (i % 7 === 0 || contains(i, 7)) {
+            direction = !direction;
+            console.log(i + " bolt");
+          } else if (direction) {
+            console.log("dreapta", i);
+          } else {
+            console.log("stanga", i);
+          }
+        }
+      }
+      bolt(50);
+
+      let str = "Ana are mere";
+
+      for (let ch of str) {
+        console.log(ch);
+      }
+
+      function inversa(str) {
+        let strInversat = "";
+        for (let ch of str) {
+          strInversat = ch + strInversat;
+        }
+        return strInversat;
+      }
+
+      function inversa(str) {
+        let strInversat = "";
+        for (let i = str.length - 1; i >= 0; i--) {
+          strInversat = strInversat + str[i];
+        }
+        return strInversat;
+      }
+
+      function inversa(str) {
+        let strInversat = "";
+        for (let i = str.length - 1; i >= 0; i--) {
+          strInversat = str[i] + strInversat;
+        }
+        return strInversat;
+      }
+
+      function inversa(str) {
+        let strInversat = "";
+        for (let i = 0; i < str.length; i++) {
+          strInversat = strInversat + str[str.length - 1 - i];
+        }
+        return strInversat;
+      }
+
+      console.log(inversa("Ana are mere"));
+
+      function odd(x) {
+        for (let i = 0; i <= x; i++) {
+          if (i % 2 != 0) {
+            console.log(i);
+          }
+        }
+      }
+      console.log(odd(20));
+
+      function sumArrey(x) {
+        let sum = x[0];
+        for (let value of x) {
+          sum = sum + value;
+        }
+        return sum;
+      }
+      console.log(sumArrey([4, 5, 6, 7]));
+
+      function maxArrey(x) {
+        let max = x[0];
+        for (let i = 1; i <= x.length; i++) {
+          if (max < x[i]) {
+            max = x[i];
+          }
+        }
+        return max;
+      }
+      function maxArrey1(x) {
+        let max = x[0];
+        for (let value of x) {
+          if (max < value) {
+            max = value;
+          }
+        }
+        return max;
+      }
+      console.log(maxArrey([4, 5, 6, 7]));
+      console.log(maxArrey1([4, 5, 6, 7]));
+
+      function hasDuplicates(x) {
+        let sumDuplicates = 0;
+
+        for (let i = 1; i <= x.length; i++) {
+          for (let j = 0; j <= x.length; j++) {
+            if (i != j) {
+              if (x[i] === x[j]) {
+                sumDuplicates = sumDuplicates + x[i];
+              }
+            }
+          }
+        }
+        return sumDuplicates;
+      }
+      console.log(hasDuplicates([4, 1, 8, 1, 11]));
+
+      function occurrences(arr, val) {
+        let nr = arr[0];
+        for (let value of arr) {
+          if (value === val) {
+            nr++;
+          }
+          return nr;
+        }
+      }
+      console.log(occurrences([1, 2, 2, 4, 2, 5], 2));
+
+      function pattern1() {
+        let str = "";
+        let p = 0;
+        for (let i = 0; i < 4; i++) {
+          if ((i >= 4 && i <= 7) || (i >= 12 && i <= 16)) {
+            p = (i + 1) % 2;
+          } else {
+            p = i % 2;
+          }
+          str += p;
+          if (i % 4 === 3) {
+            str += "\n";
+          }
+        }
+        return str;
+      }
+      console.log(pattern1());
+    </script>
+  </head>
+  <body></body>
+</html>

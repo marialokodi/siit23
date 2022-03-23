@@ -165,7 +165,7 @@
       console.log(bolc(10));
 
       //Write a JavaScript program to convert a given number to hours and minutes.
-      function hourConverter(num) {
+      /* function hourConverter(num) {
         let msec = Math.floor(num) num % 60;
         let sec = (num - msec * 60) % 60;
         let minutes = (num - msec * sec * 60) % 60;
@@ -173,7 +173,7 @@
 
         return `${hours} hours ${minutes} minutes ${sec} secunds ${msec} miliseconds`;
       }
-      console.log(hourConverter(10000000000));
+      console.log(hourConverter(10000000000));*/
 
       //Write a JavaScript program to check from two given integers whether one of them is 8 or their sum or difference is 8.
       function is8(num1, num2) {
@@ -210,8 +210,8 @@
 
       //Write a JavaScript program to find a value which is nearest to 100 from two different given integer values.
       function nearestNumber(num1, num2) {
-        let nearest = 100 - num1; // poate sa fie si mai mare
-        if (nearest > 100 - num2) {
+        let nearest = Math.abs(100 - num1); // poate sa fie si mai mare
+        if (nearest > Math.abs(100 - num2)) {
           return num2;
         } else {
           return num1;
@@ -219,6 +219,8 @@
       }
       console.log(nearestNumber(99, 98));
       console.log(nearestNumber(9, 98));
+      console.log(nearestNumber(105, 98));
+      console.log(nearestNumber(910, 105));
 
       //Write a JavaScript program to check whether two given integer values are in the range 50..99 (inclusive). Return true if either of them are in the said range.
       function inRange(num1, num2) {
