@@ -1,0 +1,56 @@
+body {
+  margin: 20px;
+  border: 1px solid black;
+  padding: 20px;
+  max-width: 800px;
+  justify-content: center;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.textImputs {
+  margin: 5px 0;
+}
+
+img {
+  max-width: 450px;
+  padding: 0;
+  margin: 0;
+}
+
+#inputs {
+  margin: 0 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: end;
+}
+.text {
+}
+
+.gender {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-self: flex-end;
+}
+
+.genderText {
+  text-align: start;
+}
+
+.textImputs:nth-child(2),
+.textImputs:nth-child(3) {
+  text-align: start;
+  margin-left: 50px;
+}
+
+textarea {
+  resize: none;
+  height: 150px;
+}

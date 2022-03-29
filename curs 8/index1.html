@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      function plusInput() {
+        let newContainer = document.querySelector("#input0");
+        // newContainer.innerHTML += `<input type="text" />`;
+        newContainer.insertAdjacentHTML("beforeend", '<input type="text" />');
+      }
+
+      function sum() {
+        let inputs = document.querySelectorAll("#input0 > input");
+        let s = 0;
+
+        for (let input of inputs) {
+          let n = Number(input.value);
+          if (!isNaN(n)) {
+            s += n;
+          }
+        }
+        document.querySelector("#result").innerHTML = `Suma numere este ${s}`;
+      }
+    </script>
+    <style>
+      body {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    </style>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="input0">
+      <input type="text" />
+    </div>
+    <div>
+      <button onclick="plusInput()">+</button>
+      <button onclick="sum()">Calculeaza</button>
+      <span id="result"></span>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+#pages > .page:not(.active) {
+  display: none;
+}
+
+nav > button.active {
+  background-color: yellow;
+}

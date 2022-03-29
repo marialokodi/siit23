@@ -13,7 +13,7 @@ function pattern1() {
   for (let i = 0; i < 16; i++) {
     str += p;
     if (i % 4 === 3) {
-      str += "\n";
+      str += "j\n";
       p = (p + 1) % 2;
     }
     p = (p + 1) % 2;

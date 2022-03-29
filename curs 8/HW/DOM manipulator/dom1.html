@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="dom1.css" />
+    <script src="dom1.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container1" class="hidden">
+      <div>
+        Thank you for contacting us,
+        <span></span>
+      </div>
+      <span id="cancelNitification" onclick="cancel()">X</span>
+    </div>
+    <div id="container2">
+      <form onsubmit="valideazaFormular(event);">
+        <label>
+          <input
+            type="text"
+            name="firstname"
+            placeholder="First name"
+            onchange="validateFirstName(this)"
+            onfocus="showError(this, true)"
+          />
+        </label>
+        <label>
+          <input
+            type="text"
+            name="lastname"
+            placeholder="Last name"
+            onchange="validateLastName(this)"
+            onfocus="showError(this, true)"
+          />
+        </label>
+        <div class="gender">
+          Gender
+          <label> <input type="radio" name="gender" value="male" />M </label>
+
+          <label> <input type="radio" name="gender" value="female" />F </label>
+        </div>
+        <label>
+          <textarea name="description" cols="30" rows="10">
+      Your message here...</textarea
+          >
+        </label>
+        <input type="submit" value="Submit" id="submit" />
+      </form>
+      <div>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Pretty_Big_Flower.jpg"
+          alt=""
+        />
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+img {
+  max-width: 100%;
+}
+
+#container2 {
+  border: 1px solid black;
+  margin: 20px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+div.gender {
+  display: flex;
+  flex-direction: column;
+}
+
+div.gender > label {
+  margin-left: 50px;
+}
+
+#submit {
+}
+
+.error {
+  border: 2px solid red;
+}
+
+#container1.hidden {
+  display: none;
+}
+
+#container1 {
+  margin: 20px;
+  padding: 5px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #def0d8;
+  color: #368e3a;
+  font-weight: 500;
+}
+
+#container1 > span {
+  text-align: end;
+}

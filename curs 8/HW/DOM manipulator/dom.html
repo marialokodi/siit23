@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="dom.css" />
+    <script src="dom.js"></script>
+    <title>DOM Manipulator</title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="inputs">
+        <div class="text">
+          <input
+            type="text"
+            id="firstName textImputs"
+            placeholder="First Name"
+          />
+          <input type="text" id="lastName textImputs" placeholder="Last Name" />
+          <div class="gender textImputs">
+            <div class="genderText">Gender</div>
+            <div>
+              <input type="radio" id="mRadio" class="genderButton" />
+              <label for="mRadio">M</label>
+            </div>
+            <div>
+              <input type="radio" id="fRadio" class="genderButton" />
+              <label for="fRadio">F</label>
+            </div>
+          </div>
+          <textarea id="longText"> </textarea>
+        </div>
+
+        <div class="button textImputs">
+          <button onclick="submit()" class="buttonText">Submit</button>
+        </div>
+      </div>
+
+      <div class="image">
+        <img
+          src="https://www.thespruce.com/thmb/JObhDcNNBALGVyF9S7bFoQwoXsI=/941x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/plants-with-big-flowers-4138211-hero-b10becb169064cc4b3c7967adc1b22e1.jpg"
+          alt="like.img"
+        />
+      </div>
+    </div>
+  </body>
+</html>
