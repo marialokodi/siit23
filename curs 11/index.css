@@ -1,0 +1,8 @@
+.hidden {
+  display: none;
+}
+
+.searchField {
+  width: 100%;
+  box-sizing: border-box;
+}

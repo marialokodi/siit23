@@ -230,7 +230,7 @@ function binarySearch(arr, num) {
 /*
 O functie care implementeaza binary search pentru a verifica daca un numar se regaseste intr-un array. Dupa ce se termina executia functiei trebuie sa returnati de cate ori s-a apelat functia recursiv ("countBinarySearch")
 */
-function countBinarySearch(arr, num) {
+/*function countBinarySearch(arr, num) {
   arr.sort((a, b) => a - b);
 
   let lower = 0;
@@ -248,6 +248,76 @@ function countBinarySearch(arr, num) {
       upper = middle - 1;
     } else {
       lower = middle + 1;
+    }
+  }
+  return count;
+}*/
+
+function countBinarySearch(arr, num) {
+  arr.sort((a, b) => a - b);
+
+  let lower = 0;
+  let upper = arr.length - 1;
+  let count = 0;
+
+  const middle = lower + Math.floor((upper - lower) / 2);
+
+  if (num === arr[middle]) {
+    count++;
+  } else if (num < arr[middle]) {
+    upper = middle - 1;
+    count++;
+    return countBinarySearch(arr.slice(lower, middle - 1), num);
+  } else {
+    lower = middle + 1;
+    count++;
+    return countBinarySearch(arr.slice(middle + 1, upper), num);
+  }
+  return count;
+}
+
+function binarySearch(arr, num) {
+  arr.sort((a, b) => a - b);
+
+  let lower = 0;
+  let upper = arr.length;
+  let middle = lower + Math.floor((upper - lower) / 2);
+
+  if (arr.length >= 1) {
+    if (num === arr[middle]) {
+      return true;
+    } else {
+      if (num < arr[middle]) {
+        let arr1 = arr.slice(lower, middle);
+        return binarySearch(arr1, num);
+      } else {
+        let arr1 = arr.slice(middle, upper);
+        return binarySearch(arr1, num);
+      }
+    }
+  }
+  return false;
+}
+
+let count = 0;
+function countBinarySearch(arr, num) {
+  arr.sort((a, b) => a - b);
+  count++;
+  let lower = 0;
+  let upper = arr.length;
+  let middle = lower + Math.floor((upper - lower) / 2);
+
+  if (arr.length >= 1) {
+    if (num === arr[middle]) {
+      return count;
+    } else {
+      if (num < arr[middle]) {
+        let arr1 = arr.slice(lower, middle);
+        return binarySearch(arr1, num);
+      } else {
+        let arr1 = arr.slice(middle, upper);
+        return binarySearch(arr1, num);
+      }
     }
   }
   return count;

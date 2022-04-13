@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="index.js"></script>
+  </head>
+  <body onload="draw()">
+    <form id="formular" onsubmit="adauga(event)">
+      <div>
+        <input type="text" placeholder="Title" name="title" />
+      </div>
+      <div>
+        <input type="text" placeholder="Url" name="url" />
+      </div>
+      <div>
+        <select name="difficulty">
+          <option value="">[Please chose]</option>
+          <option value="0">Entry Level</option>
+          <option value="1">Easy</option>
+          <option value="2">Medium</option>
+          <option value="3">Hard</option>
+          <option value="4">Hacker</option>
+        </select>
+      </div>
+      <div>
+        <input type="text" placeholder="Tags" name="tags" />
+        <button id="addTagBtn" onclick="addTag(event)">+</button>
+      </div>
+      <input type="submit" value="Adauga" />
+      <input type="button" value="Anuleaza" onclick="showTable()" />
+    </form>
+
+    <table
+      id="list"
+      class="hidden"
+      border="1"
+      style="border-collapse: collapse; width: 100%"
+    >
+      <thead>
+        <tr>
+          <th onclick="sortTable(this, 'title')" style="width: 40%">
+            <input
+              type="button"
+              value="+"
+              onclick="event.stopPropagation();showForm()"
+            />
+            <input
+              type="button"
+              value="Del"
+              onclick="event.stopPropagation();deleteAll()"
+            />
+            Title
+            <span class="sortDirection"></span>
+          </th>
+          <th onclick="sortTable(this, 'difficulty')" style="width: 20%">
+            <span class="sortDirection"></span>
+            Difficulty
+          </th>
+          <th onclick="sortTable('tags')">Tags</th>
+          <th style="width: 100px"></th>
+        </tr>
+
+        <tr>
+          <th>
+            <input
+              type="text"
+              class="searchField"
+              placeholder="Title"
+              oninput="search(this, 'title')"
+            />
+          </th>
+          <th>
+            <input
+              type="text"
+              class="searchField"
+              placeholder="Difficulty"
+              oninput="search(this, 'difficulty')"
+            />
+          </th>
+          <th>
+            <input
+              type="text"
+              class="searchField"
+              placeholder="Tags"
+              oninput="search(this, 'tags')"
+            />
+          </th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </body>
+</html>

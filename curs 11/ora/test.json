@@ -1,0 +1,43 @@
+{
+  "list": [
+    {
+      "title": "Google",
+      "url": "https://google.com",
+      "difficulty": "2",
+      "tags": ["SJ", "HTML"]
+    },
+    {
+      "title": "Google1",
+      "url": "https://google.com",
+      "difficulty": "3",
+      "tags": ["SJ", "HTML"]
+    },
+    {
+      "title": "Google2",
+      "url": "https://google.com",
+      "difficulty": "1",
+      "tags": ["SJ", "HTML"]
+    },
+    {
+      "title": "Google3",
+      "url": "https://google.com",
+      "difficulty": "0",
+      "tags": ["SJ", "HTML"]
+    }
+  ],
+  "search": {
+    "title": "",
+    "difficulty": "",
+    "tags": ""
+  },
+  "idxEdit": null,
+  "sortColumn": null,
+  "sortDirection": 1,
+  "difficulty": {
+    "0": "Entry Level",
+    "1": "Easy",
+    "2": "Medium",
+    "3": "Hard",
+    "4": "Hacker"
+  }
+}
