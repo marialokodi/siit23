@@ -156,20 +156,6 @@ function palindrom(x) {
   }
 }
 
-//metoda 2 ??
-
-function palindrom(x) {
-  let isPalindrom = false;
-  for (let i = 0; i < Math.log10(x) + 1 / 2; i++) {
-    if (x / Math.pow(10 ** i) === x / Math.pow(10 ** (Math.log10(x) + 1 - i))) {
-      isPalindrom = true;
-    } else {
-      isPalindrom = false;
-    }
-  }
-  return isPalindrom;
-}
-
 /*
 O functie care sorteaza numerele pare dintr-un sir de numere primit ca parametru. ("sort")
 */
@@ -187,20 +173,25 @@ function sort(x) {
 /*
 O functie care primeste ca parametru un array de numere. Aceasta sorteaza ascendent numerele pare si descendent numerele impare, in cadrul aceluiasi array primit ca parameru. ("sortAscDesc")
 */
-function sortImpare(x) {
+function sortAscDesc(x) {
+  let arrayImpare = x;
+  let arrayPare = x;
   let impare = [];
-  for (let i = 0; i < x.length; i++) {
-    if (x[i] % 2 !== 0) {
-      impare.push(x[i]);
+  let pare = [];
+  for (let i = 0; i < arrayImpare.length; i++) {
+    if (arrayImpare[i] % 2 !== 0) {
+      impare.push(arrayImpare[i]);
     }
   }
-  pare.sort((a, b) => b - a);
-  return impare;
-}
+  impare.sort((a, b) => b - a);
+  for (let i = 0; i < arrayPare.length; i++) {
+    if (arrayPare[i] % 2 === 0) {
+      pare.push(arrayPare[i]);
+    }
+  }
+  pare.sort((a, b) => a - b);
 
-function sortAscDesc(x) {
-  let newArray = pare.concat(impare);
-  return newArray;
+  return pare.concat(impare);
 }
 
 /*
@@ -230,95 +221,25 @@ function binarySearch(arr, num) {
 /*
 O functie care implementeaza binary search pentru a verifica daca un numar se regaseste intr-un array. Dupa ce se termina executia functiei trebuie sa returnati de cate ori s-a apelat functia recursiv ("countBinarySearch")
 */
-/*function countBinarySearch(arr, num) {
-  arr.sort((a, b) => a - b);
-
-  let lower = 0;
-  let upper = arr.length - 1;
-  let count = 0;
-
-  while (lower <= upper) {
-    count++;
-    const middle = lower + Math.floor((upper - lower) / 2);
-
-    if (num === arr[middle]) {
-      break;
-    }
-    if (num < arr[middle]) {
-      upper = middle - 1;
-    } else {
-      lower = middle + 1;
-    }
-  }
-  return count;
-}*/
 
 function countBinarySearch(arr, num) {
+  if (arr.length === 0) {
+    return 1;
+  }
+
   arr.sort((a, b) => a - b);
 
   let lower = 0;
   let upper = arr.length - 1;
-  let count = 0;
-
-  const middle = lower + Math.floor((upper - lower) / 2);
+  const middle = Math.floor(upper / 2);
 
   if (num === arr[middle]) {
-    count++;
+    return 1;
   } else if (num < arr[middle]) {
-    upper = middle - 1;
-    count++;
-    return countBinarySearch(arr.slice(lower, middle - 1), num);
+    let arr1 = arr.slice(lower, middle - 1);
+    return 1 + countBinarySearch(arr1, num);
   } else {
-    lower = middle + 1;
-    count++;
-    return countBinarySearch(arr.slice(middle + 1, upper), num);
+    let arr1 = arr.slice(middle + 1, upper);
+    return 1 + countBinarySearch(arr1, num);
   }
-  return count;
-}
-
-function binarySearch(arr, num) {
-  arr.sort((a, b) => a - b);
-
-  let lower = 0;
-  let upper = arr.length;
-  let middle = lower + Math.floor((upper - lower) / 2);
-
-  if (arr.length >= 1) {
-    if (num === arr[middle]) {
-      return true;
-    } else {
-      if (num < arr[middle]) {
-        let arr1 = arr.slice(lower, middle);
-        return binarySearch(arr1, num);
-      } else {
-        let arr1 = arr.slice(middle, upper);
-        return binarySearch(arr1, num);
-      }
-    }
-  }
-  return false;
-}
-
-let count = 0;
-function countBinarySearch(arr, num) {
-  arr.sort((a, b) => a - b);
-  count++;
-  let lower = 0;
-  let upper = arr.length;
-  let middle = lower + Math.floor((upper - lower) / 2);
-
-  if (arr.length >= 1) {
-    if (num === arr[middle]) {
-      return count;
-    } else {
-      if (num < arr[middle]) {
-        let arr1 = arr.slice(lower, middle);
-        return binarySearch(arr1, num);
-      } else {
-        let arr1 = arr.slice(middle, upper);
-        return binarySearch(arr1, num);
-      }
-    }
-  }
-  return count;
 }

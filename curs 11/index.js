@@ -1,30 +1,5 @@
 let state = {
-  list: [
-    {
-      title: "Google",
-      url: "https://google.com",
-      difficulty: "2",
-      tags: ["SJ", "HTML"],
-    },
-    {
-      title: "Google1",
-      url: "https://google.com",
-      difficulty: "3",
-      tags: ["SJ", "HTML"],
-    },
-    {
-      title: "Google2",
-      url: "https://google.com",
-      difficulty: "1",
-      tags: ["SJ", "HTML"],
-    },
-    {
-      title: "Google3",
-      url: "https://google.com",
-      difficulty: "0",
-      tags: ["SJ", "HTML"],
-    },
-  ],
+  list: [],
   search: {
     title: "",
     difficulty: "",
@@ -33,6 +8,7 @@ let state = {
   idxEdit: null,
   sortColumn: null,
   sortDirection: 1, //1 e asc, -1 e desc
+
   difficulty: {
     "": "",
     0: "Entry Level",
@@ -41,6 +17,8 @@ let state = {
     3: "Hard",
     4: "Hacker",
   },
+  databaseUrl:
+    "https://linkuri-siit-23-default-rtdb.europe-west1.firebasedatabase.app/",
 };
 
 /*function deleteAll() {
@@ -53,7 +31,7 @@ let state = {
   draw();
 }*/
 
-function deleteAll() {
+async function deleteAll() {
   let checkboxes = document.querySelectorAll(
     "input[type=checkbox][name=deleteAll]:checked"
   );
@@ -64,9 +42,14 @@ function deleteAll() {
     return;
   }
   for (let i = checkboxes.length - 1; i >= 0; i--) {
-    state.list.splice(Number(checkboxes[i].getAttribute("idx")), i);
+    //state.list.splice(Number(checkboxes[i].getAttribute("idx")), i);
+    let idx = checkboxes[i].getAttribute("idx");
+    let url = state.databaseUrl + idx + "/" + ".json";
+    let response = await fetch(url, {
+      method: "DELETE",
+    });
   }
-  draw();
+  getData();
 }
 
 function search(input, column) {
@@ -74,8 +57,6 @@ function search(input, column) {
   state.search[column] = searchVal.toLowerCase();
   draw();
 }
-
-function sortTable(th, column) {}
 
 /*function sortTable(column) {
   if (column === "title") { 
@@ -117,24 +98,6 @@ function sortTable(th, column) {
   th.querySelector(".sortDirection").innerHTML =
     state.sortDirection === 1 ? "&darr;" : "&uarr;";
 
-  state.list.sort(function (a, b) {
-    let columnA = a[column];
-    let columnB = b[column];
-    if (columnA instanceof Array) {
-      columnA = columnA.join();
-    }
-    if (columnB instanceof Array) {
-      columnB = columnB.join();
-    }
-
-    if (a[column] < b[column]) {
-      return -1 * state.sortDirection;
-    } else if (a[column] > b[column]) {
-      return 1 * state.sortDirection;
-    } else {
-      return 0;
-    }
-  });
   draw();
 }
 
@@ -145,8 +108,41 @@ function sortTable(th, column) {
 function draw() {
   let table = document.querySelector("#list tbody");
   let str = "";
-  for (let i = 0; i < state.list.length; i++) {
-    let elem = state.list[i];
+  let column = state.sortColumn;
+  let array = Object.entries(state.list);
+  if (column !== null) {
+    array.sort(function ([keyA, a], [keyB, b]) {
+      let columnA = a[column];
+      let columnB = b[column];
+      if (columnA instanceof Array) {
+        columnA = columnA.join();
+      }
+      if (columnB instanceof Array) {
+        columnB = columnB.join();
+      }
+      columnA = columnA.toLowerCase();
+      columnB = columnB.toLowerCase();
+
+      if (a[column] < b[column]) {
+        return -1 * state.sortDirection;
+      } else if (a[column] > b[column]) {
+        return 1 * state.sortDirection;
+      } else {
+        return 0;
+      }
+    });
+  }
+
+  for (let [i, elem] of Object.entries(state.list)) {
+    //object distructuring
+    //for (let i = 0; i < state.list.length; i++) {
+    //  let elem = state.list[i];
+    if (elem === null) {
+      continue;
+    }
+    if (elem.tags === undefined) {
+      elem.tags = [];
+    }
     if (!elem.title.toLowerCase().includes(state.search.title)) {
       continue;
     }
@@ -169,8 +165,8 @@ function draw() {
                 <td>${state.difficulty[elem.difficulty]}</td>
                 <td>${elem.tags.join(", ")}</td>
                 <td>
-                    <button onclick="del(${i})">Delete</button>
-                    <button onclick="edit(${i})">Edit</button>
+                    <button onclick="del('${i}')">Delete</button>
+                    <button onclick="edit('${i}')">Edit</button>
                 </td>
             </tr>
         `;
@@ -178,12 +174,18 @@ function draw() {
   table.innerHTML = str;
 }
 
-function del(idx) {
+//din CRUD asta e DELETE
+async function del(idx) {
   if (
     confirm(`Esti sigur ca vrei sa stergi linkul: ${state.list[idx].title}?`)
   ) {
-    state.list.splice(idx, 1);
-    draw();
+    //state.list.splice(idx, 1);
+    //https:// ...com/2/.json
+    let url = state.databaseUrl + idx + "/" + ".json";
+    let response = await fetch(url, {
+      method: "DELETE",
+    });
+    await getData();
   }
 }
 
@@ -205,7 +207,7 @@ function edit(idx) {
   state.idxEdit = idx;
 }
 
-function adauga(event) {
+async function adauga(event) {
   event.preventDefault();
   let title = document.querySelector("[name='title']").value.trim();
   let url = document.querySelector("[name='url']").value.trim();
@@ -220,25 +222,47 @@ function adauga(event) {
   }
   if (state.idxEdit === null) {
     //vreau sa adaug un element nou in lista
-    state.list.push({
+    /* state.list.push({
       title: title,
       url: url,
       difficulty: difficulty,
       tags: tags,
+    });*/
+
+    let response = await fetch(state.databaseUrl + ".json", {
+      method: "POST",
+      body: JSON.stringify({
+        title: title,
+        url: url,
+        difficulty: difficulty,
+        tags: tags,
+      }),
     });
   } else {
     //aici sunt in timpul editarii
-    state.list[state.idxEdit] = {
+    /* state.list[state.idxEdit] = {
       title: title,
       url: url,
       difficulty: difficulty,
-      tags: tags,
-    };
+      tags: tags,*/
+    let response = await fetch(
+      state.databaseUrl + state.idxEdit + "/" + ".json",
+      {
+        method: "PUT",
+        body: JSON.stringify({
+          title: title,
+          url: url,
+          difficulty: difficulty,
+          tags: tags,
+        }),
+      }
+    );
     state.idxEdit = null;
   }
+
   showTable();
   document.querySelector("form").reset();
-  draw();
+  await getData();
 }
 
 function addTag(event) {
@@ -283,12 +307,18 @@ function showForm() {
   let tabel = document.querySelector("#list").classList.add("hidden");
 }
 
-async function getFromFirebase() {
-  let url =
-    "https://linkuri-siit-default-rtdb.europe-west1.firebasedatabase.app/.json";
+//din CRUD asta e READ
+async function getData() {
+  let url = state.databaseUrl + ".json";
   let response = await fetch(url);
   //let serverResponseText = await response.text();
-  let serverResponseJson = await response.json();
+  let list = await response.json();
   // console.log(serverResponseText);
-  console.log(serverResponseJson);
+  if (list === null) {
+    state.list = {};
+    showForm();
+  } else {
+    state.list = list;
+    draw();
+  }
 }

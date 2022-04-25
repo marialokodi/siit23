@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <div id="container1" class="container">
+      <input type="text" name="city" />
+      <input
+        type="button"
+        value="Show Current Weather"
+        onclick="showWeather()"
+      />
+      <input
+        type="button"
+        value="Show Weather Forecast"
+        onclick="showForecast()"
+      />
+    </div>
+    <div id="container2" class="container">
+      <h3>Current Weather</h3>
+      <div class="weatherInfo">
+        <div class="textData">
+          <img src="" alt="" />
+          <div>Description:</div>
+          <div>Humidity:</div>
+          <div>Pression:</div>
+          <div>Current Temperature:</div>
+          <div>Max:</div>
+          <div>Min:</div>
+        </div>
+        <div class="map">
+          <iframe
+            width="600"
+            height="450"
+            style="border: 0"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD2DEdqX1gCq7yUiq_kfO6QACCBY0eg-U8
+            &q=Space+Needle,Seattle+WA"
+          >
+          </iframe>
+        </div>
+      </div>
+    </div>
+    <div id="container3" class="container">
+      <h3>Weather Forecast</h3>
+      <div class="forcastInfo">
+        <table>
+          <thead>
+            <tr>
+              <th>0</th>
+              <th>1</th>
+              <th>2</th>
+              <th>3</th>
+              <th>4</th>
+              <th>5</th>
+              <th>6</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

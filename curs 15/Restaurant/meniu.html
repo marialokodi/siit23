@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="meniu.js"></script>
+    <title>Meniu</title>
+
+    <link rel="stylesheet" href="loading.css" />
+    <link rel="stylesheet" href="meniu.css" />
+  </head>
+  <body onload="getData()">
+    <div id="loading" class="lds-default">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div id="container">
+      <div class="container0">
+        <nav>
+          <h3>Cald si bun</h3>
+          <a href="contact.html"><input type="button" value="Contact" /></a>
+        </nav>
+        <input type="text" name="filtrare" />
+        <input type="button" value="Cauta in ingrediente" onclick="search()" />
+      </div>
+      <div id="container1"></div>
+    </div>
+    <footer></footer>
+  </body>
+</html>

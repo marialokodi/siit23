@@ -1,0 +1,44 @@
+body {
+  padding: auto;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#container {
+  background-color: aquamarine;
+  margin: 20px 20px;
+  padding: 50px;
+}
+
+#container1 {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  align-items: center;
+}
+
+.foodDescription {
+  margin: 20px;
+}
+
+img {
+  max-width: 300px;
+}
+
+.detalii {
+  background-color: red;
+  color: white;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}

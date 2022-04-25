@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="meniu.css" />
+    <script src="edit.js"></script>
+    <title>Add</title>
+  </head>
+  <body onload="edit()">
+    <div id="container">
+      <h3>Cald si Bun (Admin)</h3>
+      <form id="formular">
+        <label>
+          Nume:
+          <input name="name" type="text" />
+        </label>
+        <label>
+          URL Img:
+          <input name="url" type="text" />
+        </label>
+        <label>
+          Ingredients:
+          <textarea name="ingredients" id="" cols="30" rows="10"></textarea>
+        </label>
+
+        <input type="submit" value="Add" onclick="adauga(event)" />
+        <input type="button" value="Cancel" onclick="cancel()" />
+      </form>
+    </div>
+  </body>
+</html>
