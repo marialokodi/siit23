@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OOP</title>
+    <script>
+      class Masina {
+        #viteza = 0; // #privat, nu se poate accesa decat in interiorul clasei
+        putereMotor = 100; //publica
+        constructor({
+          tipMasina = "dacia",
+          culoare = "alb",
+          nrUsi = 4,
+          putere = 50,
+          greutate = 1200,
+        } = {}) {
+          this.tipMasina = tipMasina;
+          this.culoare = culoare;
+          this.viteza = 0;
+          this.nrUsi = nrUsi;
+          this.putereMotor = putere;
+        }
+        accelereaza(coeficient) {
+          if (coeficient == undefined) {
+            this.viteza++;
+          } else {
+            this.viteza += coeficient;
+          }
+        }
+        franeaza(coeficient = 1) {
+          if (this.viteza > coeficient) {
+            this.viteza -= coeficient;
+          } else {
+            this.culoare = 0;
+          }
+        }
+      }
+      let masina = new Masina({});
+      masina.accelereaza();
+      masina.accelereaza();
+      masina.putereMotor = 200;
+
+      let masina2 = {
+        tipMasina: "Opel",
+        culoare: "negru",
+        viteza: 0,
+      };
+      masina2.viteza++;
+      console.log(masina);
+      console.log(masina2);
+    </script>
+  </head>
+  <body></body>
+</html>
