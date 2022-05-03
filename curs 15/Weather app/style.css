@@ -11,3 +11,20 @@ body {
 h3 {
   border-bottom: 1px solid black;
 }
+
+.hidden {
+  display: none;
+}
+
+th {
+  padding: 5px;
+  background: lightblue;
+}
+table {
+  margin: auto;
+}
+
+.weatherInfo {
+  display: flex;
+  justify-content: space-between;
+}

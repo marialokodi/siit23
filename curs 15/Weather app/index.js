@@ -28,6 +28,19 @@ async function showWeather() {
     <div class="map"></div>`;
 
   weatherInfoText.innerHTML = str;
+
+  const map = document.querySelector(".map");
+
+  map.innerHTML = `<iframe
+  width="500"
+  height="250"
+  style="border:0"
+  loading="lazy"
+  allowfullscreen
+  referrerpolicy="no-referrer-when-downgrade"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD2DEdqX1gCq7yUiq_kfO6QACCBY0eg-U8
+    &q=${cityNameInput}">
+</iframe>`;
 }
 
 async function showForecast() {
@@ -37,26 +50,49 @@ async function showForecast() {
   const response = await fetch(URL_FORECAST_WEATHER + cityNameInput);
   weatherData = await response.json();
 
-  let forcastInfoText = document.querySelector("tbody");
-  let str = "";
+  let forcastInfoText = document.querySelector(".forcastInfo");
+  let str = `<th>Ziua:${weatherData.list[0].dt_txt.substring(0, 10)}</th>`;
+  let str1 = "";
+  let str2 = "";
+  let dayString = weatherData.list[0].dt_txt.substring(0, 10);
 
-  for (let [i, article] of Object.entries(weatherData.list)) {
+  for (let article of weatherData.list) {
     if (article === null) {
       continue;
     }
 
-    str += `
-    <tr>
-    
-    <div >
-      <img src="http://openweathermap.org/img/w/${
-        article.weather[0].icon
-      }.png" alt="" />
-      <div>Time: ${article.dt_txt.substring(10)}</div>
-      <div>Temperature: ${article.main.temp}</div>
-      <div>Description: ${article.weather[0].description}</div>
-    </div>
-    </tr>`;
+    if (dayString === article.dt_txt.substring(0, 10)) {
+      str1 += `
+        <div>${article.dt_txt.substring(10, 16)}</div>
+        <div>
+          <img src="http://openweathermap.org/img/w/${
+            article.weather[0].icon
+          }.png" alt="" />
+        </div>
+        <div class="forcastTemp">${article.main.temp} &#176;C</div>
+`;
+    }
+
+    if (dayString !== article.dt_txt.substring(0, 10)) {
+      str += `<th>Ziua:${article.dt_txt.substring(0, 10)}</th>`;
+      dayString = article.dt_txt.substring(0, 10);
+      str2 += `    <td>
+      ${str1}
+    </td>`;
+      str1 = "";
+    }
   }
-  forcastInfoText.innerHTML = str;
+  str2 += `    <td>
+  ${str1}
+</td>`;
+  forcastInfoText.innerHTML = `            
+  <thead>
+    <tr>
+      ${str}
+    </tr>
+  </thead>
+  <tr>
+  ${str2}
+</tr>
+`;
 }
